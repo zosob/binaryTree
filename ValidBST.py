@@ -8,7 +8,7 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
-#Check for BST 
+#Check for BST
 def isBST(root):
     stack = []
     prev = None
@@ -18,8 +18,24 @@ def isBST(root):
             stack.append(root)
             root = root.left
         root = stack.pop()
-        if prev and root.val <= prev:
+        if prev and root.val <=prev.val:
             return False
         prev = root
         root = root.right
     return True
+
+#Result 1
+root = TreeNode(2)
+root.left = TreeNode(1)
+root.right = TreeNode(3)
+
+result = isBST(root)
+print(result)
+
+#Result 2
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+
+result = isBST(root)
+print(result)
